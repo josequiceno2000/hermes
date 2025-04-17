@@ -12,19 +12,27 @@ def translate_name(name: str, language_map: dict) -> str:
         name = name.replace(key, value)
     return name.capitalize()
 
+def list_languages():
+    files = os.listdir("languages")
+    return [file.replace("_map.json", "") for file in files if file.endswith("_map.json")]
+
 def main():
     print("🌍 Welcome to Hermes: The Ancient Language Name Translator 🌍")
     name = input("Enter your name:\n> ")
-    language = input("Choose a language [ex: latin]:\n > ").strip().lower() or "latin"
 
-    try:
-        lang_map = load_language_map(language)
-    except FileNotFoundError:
+    languages = list_languages()
+    print(f"\nAvailable Languages: {', '.join(languages)}")
+    language = input("Choose a language [ex: latin]:\n > ").strip().lower() 
+
+    while language not in languages:
         print(f"Error: Language {language} not yet supported.")
-        return
+        language = input("Choose a language [ex: latin]:\n > ").strip().lower() 
     
+    lang_map = load_language_map(language)
     translated = translate_name(name, lang_map)
-    print(f"\nIn {language.title()}, your name could be: {translated}")
+
+    print(f"In {language.title()}, your name could be: {translated}")
+
 
 if __name__ == "__main__":
     main()
