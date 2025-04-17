@@ -21,7 +21,7 @@ def main():
     name = input("Enter your name:\n> ")
 
     languages = list_languages()
-    print(f"\nAvailable Languages: {', '.join(languages)}")
+    print(f"\nAvailable Languages: {', '.join([lang.upper() for lang in languages])}")
     language = input("Choose a language [ex: latin]:\n > ").strip().lower() 
 
     while language not in languages:
