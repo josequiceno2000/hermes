@@ -1,6 +1,6 @@
 # Hermes 
 ## 📜 Description
-![Languages Supported][https://img.shields.io/badge/Languages-Latin%20%7C%20Greek-blueviolet]
+![Languages Supported](https://img.shields.io/badge/Languages-Latin%20%7C%20Greek-blueviolet)
 
 ### Demo
 
